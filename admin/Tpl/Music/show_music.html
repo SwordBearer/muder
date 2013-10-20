@@ -1,0 +1,21 @@
+<include file="../header" />
+<style type="text/css">
+.head {
+	font-size: 1.6em;
+	margin-bottom: 10px;
+}
+</style>
+<body>
+	<div class="main-container">
+		<div class="head">
+			<span>{$music.name}</span>
+		</div>
+		<div class="alert">
+			<span>日期：{$music.birth}</span><span>来源：{$music.author}</span><span>状态：{$music.status}</span>
+			<span>文件名：{$music.file}</span><span>歌词名：{$music.lyric}</span>
+			 <a href="__URL__/edit_music/id/{$music.id}" class="btn">编辑</a>
+		</div>
+		<div>{$music.details}</div>
+	</div>
+</body>
+</html>

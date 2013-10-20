@@ -1,0 +1,68 @@
+<include file="../header" />
+<script language="Javascript">
+	function deleteArticle(id){
+		jQuery("#btnDel").attr('href','__URL__/delete_article/id/'+id);
+		jQuery('#deleteDialog').modal('show');
+	}
+</script>
+<div class="modal hide " id="deleteDialog">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h3>删除博客</h3>
+	</div>
+	<div class="modal-body">
+		<lable>确定要删除该文章?</lable>
+	</div>
+	<div class="modal-footer">
+		<a id="btnDel" href="#" class="btn">删除</a> <a class="btn btn-primary"
+			data-dismiss="modal">取消</a>
+	</div>
+</div>
+<body>
+	<div class="main-container">
+		<form action="{:U(index)}" class="form-inline">
+			<div class="input-append input-prepend ">
+				<label class="add-on">日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期</label>
+				<input type="text" class="input" name="date" />
+				<button type="submit" class=" btn btn-success">查看</button>
+			</div>
+			<a class="btn btn-primary" href="{:U(edit_article)}"> 添加文章</a>
+		</form>
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>时间</th>
+					<th>状态</th>
+					<th>ID</th>
+					<th>Source</th>
+					<th>标题</th>
+					<th>简述</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<volist name="list" id="vo">
+			<tr>
+				<td style="min-width: 150px;">{$vo.birth}</td>
+				<td style="width: 40px; text-align: center;"><if
+						condition="$vo.status neq 1"> <span
+						class="label label-important">{$vo.status} </span> <else /> <span>{$vo.status}</span>
+					</if></td>
+				<td>{$vo.id}</td>
+				<td>{$vo.source}</td>
+				<td><a href="__URL__/show_article/id/{$vo.id}">{$vo.title}</a></td>
+				<td>{$vo.outline}</td>
+				<td style="min-width: 80px;"><a
+					href="__URL__/edit_article/id/{$vo.id}" class="btn btn-mini">编辑</a>
+					<a class="btn btn-mini" onClick="deleteArticle({$vo.id})">删除</a></td>
+			</tr>
+			</volist>
+			<tr>
+			</tr>
+			<tr>
+				<td style="padding: 0px;" colspan="7"><div class="page">{$page}</div></td>
+			</tr>
+		</table>
+
+	</div>
+</body>
+</html>

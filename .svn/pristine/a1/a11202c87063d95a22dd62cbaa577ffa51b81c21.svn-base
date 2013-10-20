@@ -1,0 +1,32 @@
+<include file="../header" />
+<body>
+	<div class="main-container">
+		<form action="{:U(generate_feed)}" method="post">
+			<button class="btn btn-success">更新今日RSS文件</button>
+		</form>
+		<table class="table  table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>文件名</th>
+					<th>文件全名</th>
+					<th>文件大小</th>
+					<th>上传时间</th>
+				</tr>
+			</thead>
+			<volist name="feedList" id="feed">
+			<tr>
+				<td><a href="__PUBLIC__/rss/{$feed.name}">{$feed.name}</a></td>
+				<td>{$feed.fullName}</td>
+				<td>{$feed.length} kb</td>
+				<td>{$feed.uploadTime}</td>
+			</tr>
+			</volist>
+			<tr>
+			</tr>
+			<tr>
+				<td style="padding: 0px;" colspan="6"><div class="page">{$page}</div></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

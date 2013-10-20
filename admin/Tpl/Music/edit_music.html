@@ -1,0 +1,48 @@
+<include file="../header" />
+</head>
+<body>
+	<div class="main-container">
+		<form method="post" id="form" action="{:U(edit_music)}"
+			onkeydown="if(event.keyCode==13){return false;}" id="form">
+			<div class="input-prepend ">
+				<label class="add-on">音乐名</label>
+				<input type="text" class="input" required
+					name="music_name" value="{$music.name}" />
+			</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div class="input-prepend">
+				<label class="add-on">作&nbsp;&nbsp;&nbsp;&nbsp;者</label>
+				<input class="input" type="text" name="music_author"
+					value="{$music.author}" required />
+			</div><br/>
+			<div class="input-prepend">
+				<label class="add-on">文件地址</label>
+				<input class="input input-xxlarge" type="text" name="music_url"
+					value="{$music.url}" required />
+			</div>
+			<br/>
+			<div class="input-prepend">
+				<label class="add-on">歌词地址</label>
+				<input class="input input-xxlarge" type="text" name="music_lyc_url"
+					value="{$music.lyc_url}" required />
+			</div>
+			<br/>
+			<div class="input-prepend">
+				<label class="add-on">预&nbsp;&nbsp;览&nbsp;&nbsp;图</label>
+				<input class="input input-xxlarge" type="text" name="music_thumbnail"
+					value="{$music.thumbnail}" required /><br/>
+				
+			</div>
+			<br/>
+			<img id="thumbnail_preview" src="{$music.thumbnail}" width="300"/>
+			<textarea name="music_details" style="width:300px;" rows="10">{$music.details}</textarea>
+			<br/>
+			<input type="submit" class="btn btn-success btn" value="发布"
+				name="publish" style="margin-top: 20px;" />
+			<empty name="music"> <input type="hidden" name="is_add" />
+			<else /> <input type="hidden" name="music_id"
+				value="{$music.id}" /> </empty>
+
+		</form>
+	</div>
+</body>
+</html>

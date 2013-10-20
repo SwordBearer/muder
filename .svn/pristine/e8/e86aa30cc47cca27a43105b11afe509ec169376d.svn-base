@@ -1,0 +1,25 @@
+<include file="../import" />
+<!-- Navbar-->
+<div class="navbar">
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="brand" href="#">Muder 后台很硬 @~@!</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li><a href="__GROUP__/index/index">首页</a></li>
+						<li><a href="__GROUP__/article/index">文章管理</a></li>
+					<!--	<li><a href="__GROUP__/rss/index">Rss管理</a></li>-->
+						<li><a href="__GROUP__/music/index">音乐管理</a></li>
+					</ul>
+				</div>
+				<a class="btn pull-right" href="__GROUP__/index/logout">退出</a>
+			</div>
+		</div>
+	</div>
+</div>

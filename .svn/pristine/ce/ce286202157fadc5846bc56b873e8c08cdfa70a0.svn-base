@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>乐读--后台管理系统</title>
+<meta name="author" content="xmu.SwordBearer[ranxiedao@163.com]">
+<link href="__PUBLIC__/res/css/bootstrap.min.css" rel="stylesheet" />
+<script src="__PUBLIC__/res/js/jquery-1.9.1.min.js"
+	type="text/javascript"></script>
+<script src="__PUBLIC__/res/js/bootstrap.min.js" type="text/javascript"></script>
+<style type="text/css">
+body {
+	font-family: "微软雅黑", "宋体";
+}
+
+.table th {
+	
+}
+
+.table td {
+	padding: 4px;
+}
+
+.header {
+	margin-bottom: 20px;
+}
+
+.main-container {
+	padding: 0px 20px 40px 20px;
+}
+
+.page {
+	background: #444;
+	color: #fff;
+	text-align: center;
+	padding: 4px;
+}
+
+.page a,span {
+	margin-right: 10px;
+}
+</style>
+</head>

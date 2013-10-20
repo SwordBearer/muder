@@ -1,0 +1,17 @@
+<?php
+class MusicAction extends BaseAction{
+	public function getMusics(){
+		$music=M('Music');
+		$now=time();
+		$start=date('Y-m-d 00:00:00',$now);
+		$end=date('Y-m-d 00:00:00',$now+DAY);
+		$condition = 'status=1 and birth>"' . $start . '" and birth<"' . $end . '"';
+		$music=M('Music');
+		$result=$music->where($condition)->select();
+		if (! $result || is_null ( $result )) {
+			$this->ajaxReturn ( NULL, 'Error:there is no music today', 0 );
+		}
+		$this->ajaxReturn($result,'ok',1);
+	}
+}
+?>

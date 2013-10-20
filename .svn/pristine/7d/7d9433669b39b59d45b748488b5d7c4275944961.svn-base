@@ -1,0 +1,8 @@
+<?php
+//系统自定义
+define('DOMAIN_NAME','resource');
+define ( 'RSS_DIR', 'rss' );
+define ( 'MUSIC_DIR','music' );
+define ( 'LYRIC_DIR','lyric' );
+define ( 'RESOURCE_PATH','http://muder-resource.stor.sinaapp.com/');
+define('DAY',24*60*60);

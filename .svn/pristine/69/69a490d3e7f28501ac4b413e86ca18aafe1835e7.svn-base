@@ -1,0 +1,72 @@
+<include file="../header" />
+<script language="Javascript">
+	function deleteArticle(id){
+		jQuery("#btnDel").attr('href','__URL__/delete_article/id/'+id);
+		jQuery('#deleteDialog').modal('show');
+	}
+</script>
+<div class="modal hide " id="deleteDialog">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h3>删除博客</h3>
+	</div>
+	<div class="modal-body">
+		<lable>确定要删除该文章?</lable>
+	</div>
+	<div class="modal-footer">
+		<a id="btnDel" href="#" class="btn">删除</a> <a class="btn btn-primary"
+			data-dismiss="modal">取消</a>
+	</div>
+</div>
+<body>
+	<div class="main-container">
+	<form action="{:U(index)}" style="margin:0px;">
+			<div class="input-append input-prepend"  style="margin:4px;">
+				<span class="add-on"><i class="icon-time"></i></span>
+				<input type="date" class="input" name="date" />
+				<button type="submit" class=" btn btn-success">查看</button>
+			</div>
+			<a class="btn btn-primary pull-right" href="{:U(edit_article)}"><i class="icon-plus icon-white"></i>添加文章</a>
+		</form>
+		<table class="table table-bordered table-hover table-condensed">
+			<thead>
+				<tr class="alert-info">
+					<th class="center">时间</th>
+					<th>状态</th>
+					<th>ID</th>
+					<th>Source</th>
+					<th>Author</th>
+					<th>标题</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<volist name="list" id="vo">
+				<tr>
+					<td class="center large">{$vo.birth}</td>
+					<!--显示文章状态-->
+					<td class="center small"><if
+						condition="$vo.status neq 1"> <span
+						class="label label-important">{$vo.status} </span> <else /> <span>{$vo.status}</span>
+					    </if>
+					</td>
+					<td class="center small">{$vo.id}</td>
+					<td class="normal">{$vo.source}</td>
+					<td class="normal">{$vo.author}</td>
+					<td><a href="__URL__/show_article/id/{$vo.id}">{$vo.title}</a></td>
+					<td class="center normal">
+						<a href="__URL__/edit_article/id/{$vo.id}" class="btn btn-mini">编辑</a>
+						<a class="btn btn-mini" onClick="deleteArticle({$vo.id})">删除</a>
+					</td>
+				</tr>
+				</volist>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td style="padding: 0px;" colspan="7"><div class="page">{$page}</div></td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<include file="../header" />
+<style type="text/css">
+.head {
+	font-size: 1.6em;
+	margin-bottom: 10px;
+}
+</style>
+<body>
+	<div class="main-container">
+		<div class="head">
+			<span>{$article.title}</span> <a style="float: right;"
+				href="__URL__/edit_article/id/{$article.id}" class="btn">编辑</a>
+		</div>
+		<div>
+			<span>日期：{$article.birth}</span><span>来源：{$article.source}</span><span>状态：{$article.status}</span>
+		</div>
+		<div class="alert alert-info">{$article.outline}</div>
+		<div>{$article.content}</div>
+	</div>
+</body>
+</html>

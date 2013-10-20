@@ -1,0 +1,67 @@
+<include file="../header" />
+<script language="Javascript">
+	function deleteArticle(id){
+		jQuery("#btnDel").attr('href','__URL__/delete_music/id/'+id);
+		jQuery('#deleteDialog').modal('show');
+	}
+</script>
+<div class="modal hide " id="deleteDialog">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h3>删除音乐</h3>
+	</div>
+	<div class="modal-body">
+		<lable>确定要删除该音乐?</lable>
+	</div>
+	<div class="modal-footer">
+		<a id="btnDel" href="#" class="btn">删除</a>
+		<a class="btn btn-primary" data-dismiss="modal">取消</a>
+	</div>
+</div>
+<body>
+	<div class="main-container">
+		<form action="{:U(index)}" class="form-inline">
+			<a class="btn btn-primary" href="{:U(edit_music)}"> 添加音乐</a>
+		</form>
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>时间</th>
+					<th>状态</th>
+					<th>ID</th>
+					<th>作者</th>
+					<th>名称</th>
+					<th>文件名</th>
+					<th>歌词名</th>
+					<th>预览图</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<volist name="list" id="vo">
+			<tr>
+				<td style="min-width: 150px;">{$vo.birth}</td>
+				<td style="width: 40px; text-align: center;"><if
+						condition="$vo.status neq 1"> <span
+						class="label label-important">{$vo.status} </span> <else /> <span>{$vo.status}</span>
+					</if></td>
+				<td>{$vo.id}</td>
+				<td>{$vo.author}</td>
+				<td><a href="__URL__/show_music/id/{$vo.id}">{$vo.name}</a></td>
+				<td><a href="{$vo.url}">{$vo.name}</a></td>
+				<td><a href="{$vo.lyc_url}">{$vo.name}</a></td>
+				<td><img src="{$vo.thumbnail}" alt="{$vo.name}" style="width:200px;"/></td>
+				<td style="min-width: 80px;"><a
+					href="__URL__/edit_music/id/{$vo.id}" class="btn btn-mini">编辑</a>
+					<a class="btn btn-mini" onClick="deleteArticle({$vo.id})">删除</a></td>
+			</tr>
+			</volist>
+			<tr>
+			</tr>
+			<tr>
+				<td style="padding: 0px;" colspan="8"><div class="page">{$page}</div></td>
+			</tr>
+		</table>
+
+	</div>
+</body>
+</html>

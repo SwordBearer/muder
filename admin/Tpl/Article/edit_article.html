@@ -1,0 +1,60 @@
+<include file="../header" />
+<script type="text/javascript">
+	window.UEDITOR_HOME_URL = "__PUBLIC__/res/ueditor/";
+</script>
+<script type="text/javascript"
+	src="__PUBLIC__/res/ueditor/ueditor.config.js"></script>
+<script type="text/javascript"
+	src="__PUBLIC__/res/ueditor/ueditor.all.min.js"></script>
+</head>
+<body>
+	<div class="main-container">
+		<form method="post" id="form" action="{:U(edit_article)}"
+			onkeydown="if(event.keyCode==13){return false;}" id="form">
+			<div class="input-prepend ">
+				<label class="add-on">标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</label>
+				<input type="text" class="input input-xxlarge" required
+					name="article_title" value="{$article.title}" />
+			</div>
+			
+			<div class="input-prepend">
+				<label class="add-on">日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期</label>
+				<input class="input" type="datetime" name="article_time"
+					value="{$article.birth}" />
+			</div><br/>
+			<div class="input-prepend">
+				<label class="add-on">来&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;源</label>
+				<input class="input input-xxlarge" type="text" name="article_source"
+					value="{$article.source}" />
+			</div>
+			<div class="input-prepend ">
+				<label class="add-on">作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者</label>
+				<input type="text" class="input input"
+					name="article_author" value="{$article.author}" />
+			</div>
+			<div class="input-prepend ">
+				<label class="add-on">简&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述</label>
+				<textarea required style="width:820px;" name="article_outline">{$article.outline}</textarea>
+			</div>
+			<!---*********编辑框***********-->
+			<div>
+				<script type="text/plain" id="editor" name="article_content">{$article.content}</script>
+				<script type="text/javascript">
+					var editorWidth = document.getElementById("form").clientWidth - 20;
+					UE.getEditor("editor", {
+						lang : "zh-cn", //语言
+						initialFrameWidth : editorWidth,
+						initialFrameHeight : 400
+					});
+				</script>
+			</div>
+			<input type="submit" class="btn btn-success btn" value="发布"
+				name="publish" style="margin-top: 20px; float: right;" />
+			<empty name="article"> <input type="hidden" name="is_add" />
+			<else /> <input type="hidden" name="article_id"
+				value="{$article.id}" /> </empty>
+
+		</form>
+	</div>
+</body>
+</html>
